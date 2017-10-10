@@ -1,0 +1,45 @@
+doctype html
+html(lang='en')
+  head
+    title bil
+  body
+    form(method="post")
+      input(type="date", name="valtDatum", onChange="dd(this.value)")
+      button(onClick="pickedDate()", value=valtDatum) Send
+      div.listofcars
+        p.headline= "TILLGÄNGLIGA BILAR"
+                    div
+                        for car in carList
+                            form(action="booking.pug", method="post")
+                                ul
+                                    figure
+                                        img(src=car.imgLink)
+                                    section
+                                        input(type="hidden", value=datum)
+                                        li= "Typ: "
+                                            span.inputjs= car.fordonstyp
+                                        li= "Märke: " 
+                                            span.inputjs= car.brand + " "+ car.model
+                                        li= "Körkort: " 
+                                            span.inputjs= car.requiredDrivingLicense
+                                        li= "År: "
+                                            span.inputjs= car.year
+                                        li= "Växellåda: "
+                                            span.inputjs= car.gearbox
+                                        li= "Kostnad: " 
+                                            span.inputjs= car.dagshyra + "kr/dag"
+                                        li= "Kommentarer: "
+                                            span.inputjs= car.kommentarer.skador
+                                button(onClick="bookCar()") BOKA
+        script(type='text/javascript').
+                function dd(value) {
+                    console.log(value);
+                }
+                function pickedDate (){
+                    console.log("klickade på knappen");
+                } 
+                
+                function bookCar (){
+                    console.log("bokadebilen");
+                } 
+      

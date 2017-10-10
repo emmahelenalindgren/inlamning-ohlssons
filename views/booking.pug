@@ -1,0 +1,19 @@
+ul
+    figure
+        img(src=car.imgLink)
+    section    
+        li= "Typ: "
+            span.inputjs= car.fordonstyp
+        li= "Märke: " 
+            span.inputjs= car.brand + " "+ car.model
+        li= "Körkort: " 
+            span.inputjs= car.requiredDrivingLicense
+        li= "År: "
+            span.inputjs= car.year
+        li= "Växellåda: "
+            span.inputjs= car.gearbox
+        li= "Kostnad: " 
+            span.inputjs= car.dagshyra + "kr/dag"
+        li= "Kommentarer: "
+            span.inputjs= car.kommentarer.skador
+        p Här är ditt datum: #{datum}
